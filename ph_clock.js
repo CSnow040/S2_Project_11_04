@@ -15,8 +15,8 @@
 
 
 //These are four variables that that provide the order time that the user has to submit and finish their order. THe variables also have their corresponding content such as the clockID which makes sure it works every second the order is being done.
-var minLeft = 0;
-var secsLeft = 15;
+var minsLeft = 30;
+var secsLeft = 0;
 var timeLeft = minsLeft * 60 + secsLeft;
 var clockID = setInterval("countdown()", 1000);
 
