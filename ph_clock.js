@@ -13,14 +13,32 @@
    
 */
 
+
+//These are four variables that that provide the order time that the user has to submit and finish their order. THe variables also have their corresponding content such as the clockID which makes sure it works every second the order is being done.
 var minLeft = 0;
 var secsLeft = 15;
 var timeLeft = minsLeft * 60 + secsLeft;
+var clockID = setInterval("countdown()", 1000);
 
+
+// Creating a function of countdown which calls in multiple functions including the minutes and seconds Strings to make it function with the countdown.
 function countdown() {
-    var
+    minsLeft = Math.floor(timeLeft / 60);
+    secsLeft = timeLeft - 60 * minsLeft;
+    var minsString = addLeadingZero(minsLeft);
+    var secsString = addLeadingZero(secsLeft);
+    document.getElementById("seconds").textContent = secsString;
+    document.getElementById("minutes").textContent = minsString;
+    checkTimer();
+    timeLeft--;
 }
 
+
+// This function stops the clock that is running to show the countdown itself and it displayes a message to the user to say that the order has expired
+function stopClock() {
+    document.getElementById("TimeHead").insertAdjacentHTML('beforeend', " <br />(Order Expired)")
+    clearInterval(clockID);
+}
 /* ------------------------------------------------- */
 
 
